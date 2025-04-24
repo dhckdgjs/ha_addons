@@ -89,7 +89,13 @@ VIRTUAL_DEVICE = {
             # "end":     { "ack": 0x41, "ON": 0xB0420072, "next": None, }, # 문열림 후, 통화 종료
             "privat2": { "ack": 0x3B, "ON": 0xB03B000B,
             "next": ("end", "ON") },                       # 문 열고 나면 end 로
-            "end":     { "ack": 0x42, "ON": 0xB0420072, "next": None }, # 통화 종료 (ACK 0x42)
+            "end": {
+                "ack": 0x41,
+                # 기존: "ON": 0xB0420072,
+                # 수정: 통화 종료 후 카메라 끄기까지 두 번 보내도록 튜플로!
+                "ON": (0xB0420072, 0xB0354144),
+                "next": None,
+            },
             # 통화 종료 disable -> enable 변경 250424 for TP
 
             # 딜레이 모드 사용 시 통화 유지 대충 구현
