@@ -1,5 +1,5 @@
 {
-	"version": "10.4-forTP",
+	"version": "10.4-forTP2",
 	"slug": "sds_wallpad",
 	"name": "Samsung SDS RS485 Addon with Elevator Call",
 	"description": "삼성 SDS 월패드용 애드온입니다. 엘리베이터 호출 및 가스밸브 차단 기능을 제공합니다.",
@@ -15,8 +15,8 @@
 	"options": {
 		"serial_mode": "serial",
 		"entrance_mode": "off",
-		"wallpad_mode": "on",
-		"intercom_mode": "off",
+		"wallpad_mode": "off",
+		"intercom_mode": "on",
 		"serial": {
 			"port":  "/dev/ttyUSB0",
 			"baudrate": 9600,
@@ -25,11 +25,11 @@
 			"stopbits": 1
 		},
 		"socket": {
-			"address": "192.168.1.1",
+			"address": "192.168.0.129",
 			"port": 8899
 		},
 		"mqtt": {
-			"server": "127.0.0.1",
+			"server": "core-mosquitto",
 			"port": 1883,
 			"need_login": false,
 			"user": "",
@@ -38,10 +38,10 @@
 			"prefix": "sds"
 		},
 		"rs485": {
-			"max_retry": 20,
+			"max_retry": 10,
 			"early_response": 2,
 			"dump_time": 0,
-			"intercom_header": "A45A",
+			"intercom_header": "A15A",
 			"intercom_delay": false,
 			"power_decimal": 0,
 			"gas_decimal": 2,
