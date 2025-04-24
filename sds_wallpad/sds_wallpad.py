@@ -86,7 +86,8 @@ VIRTUAL_DEVICE = {
             "priv_b":  { "ack": 0x35, "ON": 0xB0380008, "next": ("privat2", "ON"), }, # 현관 통화 시작 (평상시)
             "private": { "ack": 0x35, "ON": 0xB0380008, "next": ("privat2", "ON"), }, # 현관 통화 시작 (평상시)
             "privat2": { "ack": 0x3B, "ON": 0xB03B000B, "next": None, }, # 현관 문열림
-            #"end":     { "ack": 0x41, "ON": 0xB0420072, "next": None, }, # 문열림 후, 통화 종료
+            "end":     { "ack": 0x41, "ON": 0xB0420072, "next": None, }, # 문열림 후, 통화 종료
+            # 통화 종료 disable -> enable 변경 250424 for TP
 
             # 딜레이 모드 사용 시 통화 유지 대충 구현
             "pubdelay1": { "ack": 0x41, "ON": 0xB0420072, "next": ("pubdelay2", "ON"), },
